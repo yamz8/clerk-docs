@@ -116,35 +116,35 @@ type NavItem = LinkItem | SubNavItem
 type LinkItem = {
   /**
    * The visible item text. May contain backticks (`) to render `<code>`
-   * 
+   *
    * @example 'Next.js Quickstart'
    * @example '`<SignIn>` and `<SignUp>`'
    */
   title: string
   /**
    * The item link. Internal links should be relative
-   * 
+   *
    * @example '/docs/quickstarts/nextjs'
    * @example 'https://example.com'
    */
   href: string
   /**
    * Muted text to display next to the item text
-   * 
+   *
    * @example 'Community'
    * @example 'Beta'
    */
   tag?: string
   /**
    * Icon to display next to the item text
-   * 
+   *
    * @example 'globe'
    * @see [Available icons]{@link https://github.com/clerk/clerk/blob/main/src/app/(website)/docs/icons.tsx}
    */
   icon?: string
   /**
    * Whether to enable text wrapping for the item text
-   * 
+   *
    * @default true
    */
   wrap?: boolean
@@ -156,7 +156,7 @@ type LinkItem = {
 type SubNavItem = {
   /**
    * The visible item text. May contain backticks (`) to render `<code>`
-   * 
+   *
    * @example 'Next.js Quickstart'
    * @example '`<SignIn>` and `<SignUp>`'
    */
@@ -167,38 +167,40 @@ type SubNavItem = {
   items: Nav
   /**
    * Muted text to display next to the item text
-   * 
+   *
    * @example 'Community'
    * @example 'Beta'
    */
   tag?: string
   /**
    * Icon to display next to the item text
-   * 
+   *
    * @example 'globe'
    * @see [Available icons]{@link https://github.com/clerk/clerk/blob/main/src/app/(website)/docs/icons.tsx}
    */
   icon?: string
   /**
    * Whether to enable text wrapping for the item text
-   * 
+   *
    * @default true
    */
   wrap?: boolean
   /**
    * Whether to collapse the sub-nav
-   * 
+   *
    * @default false
    */
   collapse?: boolean
 }
 ```
+
 </details>
 
 <details>
 <summary>Visual representation of the manifest TypeScript types</summary>
 
 ![](/public/images/styleguide/manifest.png)
+
 </details>
 
 ## Editing content
@@ -706,6 +708,7 @@ The `<Include />` component can be used to inject the contents of another MDX fi
 
 ```mdx
 {/* Render `docs/_partials/oauth-instructions.mdx` */}
+
 <Include src="_partials/oauth-instructions" />
 ```
 
