@@ -33,42 +33,40 @@ The following example includes a basic implementation of the `<CreateOrganizatio
 <Tabs type="framework" items={["Next.js", "React", "Remix"]}>
   <Tab>
     <CodeBlockTabs type="router" options={["App Router", "Pages Router"]}>
-      ```jsx {{ prettier: false, filename: '/app/create-organization/[[...create-organization]]/page.tsx' }}
-      import { CreateOrganization } from "@clerk/nextjs";
+      ```jsx {{ filename: '/app/create-organization/[[...create-organization]]/page.tsx' }}
+      import { CreateOrganization } from '@clerk/nextjs'
 
       export default function CreateOrganizationPage() {
-        return <CreateOrganization path="/create-organization" />;
+        return <CreateOrganization path="/create-organization" />
       }
       ```
 
-      ```jsx {{ prettier: false, filename: '/pages/create-organization/[[...index]].tsx' }}
-      import { CreateOrganization } from "@clerk/nextjs";
+      ```jsx {{ filename: '/pages/create-organization/[[...index]].tsx' }}
+      import { CreateOrganization } from '@clerk/nextjs'
 
       export default function CreateOrganizationPage() {
-        return (
-            <CreateOrganization path="/create-organization" />
-        )
+        return <CreateOrganization path="/create-organization" />
       }
       ```
     </CodeBlockTabs>
   </Tab>
 
   <Tab>
-    ```jsx {{ prettier: false, filename: '/create-organization.tsx' }}
-    import { CreateOrganization } from "@clerk/clerk-react";
+    ```jsx {{ filename: '/create-organization.tsx' }}
+    import { CreateOrganization } from '@clerk/clerk-react'
 
     export default function CreateOrganizationPage() {
-      return <CreateOrganization path="/create-organization" />;
+      return <CreateOrganization path="/create-organization" />
     }
     ```
   </Tab>
 
   <Tab>
-    ```jsx {{ prettier: false, filename: '/route/create-organization/$.tsx' }}
-    import { CreateOrganization } from "@clerk/remix";
+    ```jsx {{ filename: '/route/create-organization/$.tsx' }}
+    import { CreateOrganization } from '@clerk/remix'
 
     export default function CreateOrganizationPage() {
-      return <CreateOrganization path="/create-organization" />;
+      return <CreateOrganization path="/create-organization" />
     }
     ```
   </Tab>
@@ -89,8 +87,8 @@ The following examples assume that you have followed the [quickstart](/docs/quic
 
 Render the `<CreateOrganization />` component to an HTML `<div>` element.
 
-```typescript {{ prettier: false }}
-function mountCreateOrganization(node: HTMLDivElement, props?: CreateOrganizationProps): void;
+```typescript
+function mountCreateOrganization(node: HTMLDivElement, props?: CreateOrganizationProps): void
 ```
 
 ### <code>mountCreate<wbr />Organization()</code> params
@@ -103,24 +101,23 @@ function mountCreateOrganization(node: HTMLDivElement, props?: CreateOrganizatio
 #### `mountCreateOrganization()` usage
 
 <CodeBlockTabs type="npm-script" options={['NPM module', '<script>']}>
-  ```js {{ prettier: false, filename: 'main.js', mark: [14] }}
-  import { Clerk } from '@clerk/clerk-js';
+  ```js {{ filename: 'main.js', mark: [14] }}
+  import { Clerk } from '@clerk/clerk-js'
 
   // Initialize Clerk with your Clerk publishable key
-  const clerk = new Clerk('{{pub_key}}');
-  await clerk.load();
+  const clerk = new Clerk('{{pub_key}}')
+  await clerk.load()
 
-  document.getElementById("app").innerHTML = `
+  document.getElementById('app').innerHTML = `
     <div id="create-organization"></div>
-  `;
+  `
 
-  const createOrgDiv =
-    document.getElementById("create-organization");
+  const createOrgDiv = document.getElementById('create-organization')
 
-  clerk.mountCreateOrganization(createOrgDiv);
+  clerk.mountCreateOrganization(createOrgDiv)
   ```
 
-  ```html {{ prettier: false, filename: 'index.html', mark: [21] }}
+  ```html {{ filename: 'index.html', mark: [21] }}
   <!-- Add a <div id="create-organization"> element to your HTML -->
   <div id="create-organization"></div>
 
@@ -135,14 +132,13 @@ function mountCreateOrganization(node: HTMLDivElement, props?: CreateOrganizatio
   ></script>
 
   <script>
-    window.addEventListener("load", async function () {
-      await Clerk.load();
+    window.addEventListener('load', async function () {
+      await Clerk.load()
 
-      const createOrgDiv =
-        document.getElementById("create-organization");
+      const createOrgDiv = document.getElementById('create-organization')
 
-      Clerk.mountCreateOrganization(createOrgDiv);
-    });
+      Clerk.mountCreateOrganization(createOrgDiv)
+    })
   </script>
   ```
 </CodeBlockTabs>
@@ -151,8 +147,8 @@ function mountCreateOrganization(node: HTMLDivElement, props?: CreateOrganizatio
 
 Unmount and run cleanup on an existing `<CreateOrganization />` component instance.
 
-```typescript {{ prettier: false }}
-function unmountCreateOrganization(node: HTMLDivElement): void;
+```typescript
+function unmountCreateOrganization(node: HTMLDivElement): void
 ```
 
 #### `unmountCreateOrganization()` params
@@ -164,28 +160,27 @@ function unmountCreateOrganization(node: HTMLDivElement): void;
 #### `unmountCreateOrganization()` usage
 
 <CodeBlockTabs type="npm-script" options={['NPM module', '<script>']}>
-  ```js {{ prettier: false, filename: 'main.js', mark: [18] }}
-  import { Clerk } from '@clerk/clerk-js';
+  ```js {{ filename: 'main.js', mark: [18] }}
+  import { Clerk } from '@clerk/clerk-js'
 
   // Initialize Clerk with your Clerk publishable key
-  const clerk = new Clerk('{{pub_key}}');
-  await clerk.load();
+  const clerk = new Clerk('{{pub_key}}')
+  await clerk.load()
 
   document.getElementById('app').innerHTML = `
     <div id="create-organization"></div>
   `
 
-  const createOrgDiv =
-    document.getElementById('create-organization');
+  const createOrgDiv = document.getElementById('create-organization')
 
-  clerk.mountCreateOrganization(createOrgDiv);
+  clerk.mountCreateOrganization(createOrgDiv)
 
   // ...
 
-  clerk.unmountCreateOrganization(createOrgDiv);
+  clerk.unmountCreateOrganization(createOrgDiv)
   ```
 
-  ```html {{ prettier: false, filename: 'index.html', mark: [25] }}
+  ```html {{ filename: 'index.html', mark: [25] }}
   <!-- Add a <div id="create-organization"> element to your HTML -->
   <div id="create-organization"></div>
 
@@ -200,18 +195,17 @@ function unmountCreateOrganization(node: HTMLDivElement): void;
   ></script>
 
   <script>
-    window.addEventListener("load", async function () {
-      await Clerk.load();
+    window.addEventListener('load', async function () {
+      await Clerk.load()
 
-      const createOrgDiv =
-        document.getElementById('create-organization');
+      const createOrgDiv = document.getElementById('create-organization')
 
-      Clerk.mountCreateOrganization(createOrgDiv);
+      Clerk.mountCreateOrganization(createOrgDiv)
 
       // ...
 
-      Clerk.unmountCreateOrganization(createOrgDiv);
-    });
+      Clerk.unmountCreateOrganization(createOrgDiv)
+    })
   </script>
   ```
 </CodeBlockTabs>
@@ -220,8 +214,8 @@ function unmountCreateOrganization(node: HTMLDivElement): void;
 
 Opens the `<CreateOrganization />` component as an overlay at the root of your HTML `body` element.
 
-```typescript {{ prettier: false }}
-function openCreateOrganization(props?: CreateOrganizationProps): void;
+```typescript
+function openCreateOrganization(props?: CreateOrganizationProps): void
 ```
 
 #### `openCreateOrganization()` params
@@ -233,24 +227,23 @@ function openCreateOrganization(props?: CreateOrganizationProps): void;
 #### `openCreateOrganization()` usage
 
 <CodeBlockTabs type="npm-script" options={['NPM module', '<script>']}>
-  ```js {{ prettier: false, filename: 'main.js', mark: [18] }}
-  import { Clerk } from '@clerk/clerk-js';
+  ```js {{ filename: 'main.js', mark: [18] }}
+  import { Clerk } from '@clerk/clerk-js'
 
   // Initialize Clerk with your Clerk publishable key
-  const clerk = new Clerk('{{pub_key}}');
-  await clerk.load();
+  const clerk = new Clerk('{{pub_key}}')
+  await clerk.load()
 
   document.getElementById('app').innerHTML = `
     <div id="create-organization"></div>
   `
 
-  const createOrgDiv =
-    document.getElementById('create-organization');
+  const createOrgDiv = document.getElementById('create-organization')
 
-  clerk.openCreateOrganization(createOrgDiv);
+  clerk.openCreateOrganization(createOrgDiv)
   ```
 
-  ```html {{ prettier: false, filename: 'index.html', mark: [21] }}
+  ```html {{ filename: 'index.html', mark: [21] }}
   <!-- Add a <div id="create-organization"> element to your HTML -->
   <div id="create-organization"></div>
 
@@ -265,14 +258,13 @@ function openCreateOrganization(props?: CreateOrganizationProps): void;
   ></script>
 
   <script>
-    window.addEventListener("load", async function () {
-      await Clerk.load();
+    window.addEventListener('load', async function () {
+      await Clerk.load()
 
-      const createOrgDiv =
-        document.getElementById('create-organization');
+      const createOrgDiv = document.getElementById('create-organization')
 
-      Clerk.openCreateOrganization(createOrgDiv);
-    });
+      Clerk.openCreateOrganization(createOrgDiv)
+    })
   </script>
   ```
 </CodeBlockTabs>
@@ -281,35 +273,34 @@ function openCreateOrganization(props?: CreateOrganizationProps): void;
 
 Closes the organization profile overlay.
 
-```typescript {{ prettier: false }}
-function closeCreateOrganization(): void;
+```typescript
+function closeCreateOrganization(): void
 ```
 
 #### `closeCreateOrganization()` usage
 
 <CodeBlockTabs type="npm-script" options={['NPM module', '<script>']}>
-  ```js {{ prettier: false, filename: 'main.js', mark: [18] }}
-  import { Clerk } from '@clerk/clerk-js';
+  ```js {{ filename: 'main.js', mark: [18] }}
+  import { Clerk } from '@clerk/clerk-js'
 
   // Initialize Clerk with your Clerk publishable key
-  const clerk = new Clerk('{{pub_key}}');
-  await clerk.load();
+  const clerk = new Clerk('{{pub_key}}')
+  await clerk.load()
 
   document.getElementById('app').innerHTML = `
     <div id="create-organization"></div>
   `
 
-  const createOrgDiv =
-    document.getElementById('create-organization');
+  const createOrgDiv = document.getElementById('create-organization')
 
-  clerk.openCreateOrganization(createOrgDiv);
+  clerk.openCreateOrganization(createOrgDiv)
 
   // ...
 
-  clerk.closeCreateOrganization(createOrgDiv);
+  clerk.closeCreateOrganization(createOrgDiv)
   ```
 
-  ```html {{ prettier: false, filename: 'index.html', mark: [25] }}
+  ```html {{ filename: 'index.html', mark: [25] }}
   <!-- Add a <div id="create-organization"> element to your HTML -->
   <div id="create-organization"></div>
 
@@ -324,18 +315,17 @@ function closeCreateOrganization(): void;
   ></script>
 
   <script>
-    window.addEventListener("load", async function () {
-      await Clerk.load();
+    window.addEventListener('load', async function () {
+      await Clerk.load()
 
-      const createOrgDiv =
-        document.getElementById('create-organization');
+      const createOrgDiv = document.getElementById('create-organization')
 
-      Clerk.openCreateOrganization(createOrgDiv);
+      Clerk.openCreateOrganization(createOrgDiv)
 
       // ...
 
-      Clerk.closeCreateOrganization(createOrgDiv);
-    });
+      Clerk.closeCreateOrganization(createOrgDiv)
+    })
   </script>
   ```
 </CodeBlockTabs>
