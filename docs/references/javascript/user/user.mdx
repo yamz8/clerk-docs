@@ -85,29 +85,30 @@ All props below are optional.
 In the following example, the user's first name is updated to "Test".
 
 <CodeBlockTabs type="npm-script" options={['NPM module', '<script>']}>
-  ```js {{ prettier: false, filename: 'main.js', mark: [8] }}
-  import { Clerk } from '@clerk/clerk-js';
+  ```js {{ filename: 'main.js', mark: [8] }}
+  import { Clerk } from '@clerk/clerk-js'
 
   // Initialize Clerk with your Clerk publishable key
-  const clerk = new Clerk('{{pub_key}}');
-  await clerk.load();
+  const clerk = new Clerk('{{pub_key}}')
+  await clerk.load()
 
   if (clerk.user) {
-    await clerk.user.update({ firstName: "Test" })
+    await clerk.user
+      .update({ firstName: 'Test' })
       .then((res) => console.log(res))
-      .catch((error) => console.log("An error occurred:", error.errors));
+      .catch((error) => console.log('An error occurred:', error.errors))
   } else {
-    document.getElementById("app").innerHTML = `
+    document.getElementById('app').innerHTML = `
       <div id="sign-in"></div>
-    `;
+    `
 
-    const signInDiv = document.getElementById("sign-in");
+    const signInDiv = document.getElementById('sign-in')
 
-    clerk.mountSignIn(signInDiv);
+    clerk.mountSignIn(signInDiv)
   }
   ```
 
-  ```html {{ prettier: false, filename: 'index.html', mark: [18] }}
+  ```html {{ filename: 'index.html', mark: [18] }}
   <div id="app"></div>
 
   <!-- Initialize Clerk with your
@@ -122,22 +123,23 @@ In the following example, the user's first name is updated to "Test".
 
   <script>
     window.addEventListener('load', async function () {
-      await Clerk.load();
+      await Clerk.load()
 
       if (Clerk.user) {
-        await Clerk.user.update({ firstName: "Test" })
+        await Clerk.user
+          .update({ firstName: 'Test' })
           .then((res) => console.log(res))
-          .catch((error) => console.log("An error occurred:", error.errors));
+          .catch((error) => console.log('An error occurred:', error.errors))
       } else {
-        document.getElementById("app").innerHTML = `
+        document.getElementById('app').innerHTML = `
           <div id="sign-in"></div>
-        `;
+        `
 
-        const signInDiv = document.getElementById("sign-in");
+        const signInDiv = document.getElementById('sign-in')
 
-        Clerk.mountSignIn(signInDiv);
+        Clerk.mountSignIn(signInDiv)
       }
-    });
+    })
   </script>
   ```
 </CodeBlockTabs>
@@ -153,29 +155,30 @@ function delete: () => Promise<void>;
 #### Example
 
 <CodeBlockTabs type="npm-script" options={['NPM module', '<script>']}>
-  ```js {{ prettier: false, filename: 'main.js', mark: [8] }}
-  import { Clerk } from '@clerk/clerk-js';
+  ```js {{ filename: 'main.js', mark: [8] }}
+  import { Clerk } from '@clerk/clerk-js'
 
   // Initialize Clerk with your Clerk publishable key
-  const clerk = new Clerk('{{pub_key}}');
-  await clerk.load();
+  const clerk = new Clerk('{{pub_key}}')
+  await clerk.load()
 
   if (clerk.user) {
-    await clerk.user.delete()
+    await clerk.user
+      .delete()
       .then((res) => console.log(res))
-      .catch((error) => console.log("An error occurred:", error.errors));
+      .catch((error) => console.log('An error occurred:', error.errors))
   } else {
-    document.getElementById("app").innerHTML = `
+    document.getElementById('app').innerHTML = `
       <div id="sign-in"></div>
-    `;
+    `
 
-    const signInDiv = document.getElementById("sign-in");
+    const signInDiv = document.getElementById('sign-in')
 
-    clerk.mountSignIn(signInDiv);
+    clerk.mountSignIn(signInDiv)
   }
   ```
 
-  ```html {{ prettier: false, filename: 'index.html', mark: [18] }}
+  ```html {{ filename: 'index.html', mark: [18] }}
   <div id="app"></div>
 
   <!-- Initialize Clerk with your
@@ -190,22 +193,23 @@ function delete: () => Promise<void>;
 
   <script>
     window.addEventListener('load', async function () {
-      await Clerk.load();
+      await Clerk.load()
 
       if (Clerk.user) {
-        await Clerk.user.delete()
+        await Clerk.user
+          .delete()
           .then((res) => console.log(res))
-          .catch((error) => console.log("An error occurred:", error.errors));
+          .catch((error) => console.log('An error occurred:', error.errors))
       } else {
-        document.getElementById("app").innerHTML = `
+        document.getElementById('app').innerHTML = `
           <div id="sign-in"></div>
-        `;
+        `
 
-        const signInDiv = document.getElementById("sign-in");
+        const signInDiv = document.getElementById('sign-in')
 
-        Clerk.mountSignIn(signInDiv);
+        Clerk.mountSignIn(signInDiv)
       }
-    });
+    })
   </script>
   ```
 </CodeBlockTabs>
@@ -238,7 +242,7 @@ function setProfileImage: (params: SetProfileImageParams) => Promise<ImageResour
   <Tab>
     For the following example, your HTML file should look like this:
 
-    ```html {{ prettier: false, filename: 'index.html' }}
+    ```html {{ filename: 'index.html' }}
     <!doctype html>
     <html lang="en">
       <head>
@@ -260,79 +264,81 @@ function setProfileImage: (params: SetProfileImageParams) => Promise<ImageResour
 
     And your JavaScript file should look like this:
 
-    ```js {{ prettier: false, filename: 'main.js' }}
-    import { Clerk } from '@clerk/clerk-js';
+    ```js {{ filename: 'main.js' }}
+    import { Clerk } from '@clerk/clerk-js'
 
     // Initialize Clerk with your Clerk publishable key
-    const clerk = new Clerk('{{pub_key}}');
-    await clerk.load();
+    const clerk = new Clerk('{{pub_key}}')
+    await clerk.load()
 
     if (clerk.user) {
       // Get the current organization
-      const currentOrganization = clerk.organization;
+      const currentOrganization = clerk.organization
 
       // Update the user's profile image
-      document.getElementById("upload-image").addEventListener("click", () => {
-        const profileImage = document.getElementById("profile-image").files[0];
-        console.log(profileImage);
+      document.getElementById('upload-image').addEventListener('click', () => {
+        const profileImage = document.getElementById('profile-image').files[0]
+        console.log(profileImage)
 
-        currentOrganization.setLogo({ file: profileImage })
+        currentOrganization
+          .setLogo({ file: profileImage })
           .then((res) => console.log(res))
-          .catch((error) => console.log("An error occurred:", error.errors));
-        });
+          .catch((error) => console.log('An error occurred:', error.errors))
+      })
     } else {
-      document.getElementById("app").innerHTML = `
+      document.getElementById('app').innerHTML = `
         <div id="sign-in"></div>
-      `;
+      `
 
-      const signInDiv = document.getElementById("sign-in");
+      const signInDiv = document.getElementById('sign-in')
 
-      clerk.mountSignIn(signInDiv);
+      clerk.mountSignIn(signInDiv)
     }
     ```
   </Tab>
 
   <Tab>
-    ```html {{ prettier: false, filename: 'index.html' }}
-      <div id="app"></div>
+    ```html {{ filename: 'index.html' }}
+    <div id="app"></div>
 
-      <input type="file" id="profile-image" />
-      <button id="upload-image">Upload profile image</button>
+    <input type="file" id="profile-image" />
+    <button id="upload-image">Upload profile image</button>
 
-      <!-- Initialize Clerk with your
+    <!-- Initialize Clerk with your
       Clerk Publishable key and Frontend API URL -->
-      <script
-        async
-        crossorigin="anonymous"
-        data-clerk-publishable-key="{{pub_key}}"
-        src="https://{{fapi_url}}/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
-        type="text/javascript"
-      ></script>
+    <script
+      async
+      crossorigin="anonymous"
+      data-clerk-publishable-key="{{pub_key}}"
+      src="https://{{fapi_url}}/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+      type="text/javascript"
+    ></script>
 
-      <script>
-        window.addEventListener("load", async function () {
-          await Clerk.load();
-          if (Clerk.user) {
-            // Get the current organization
-            const currentOrganization = Clerk.organization;
+    <script>
+      window.addEventListener('load', async function () {
+        await Clerk.load()
+        if (Clerk.user) {
+          // Get the current organization
+          const currentOrganization = Clerk.organization
 
-            // Update the user's profile image
-            document.getElementById("upload-image").addEventListener("click", () => {
-              const profileImage = document.getElementById("profile-image").files[0];
+          // Update the user's profile image
+          document.getElementById('upload-image').addEventListener('click', () => {
+            const profileImage = document.getElementById('profile-image').files[0]
 
-              currentOrganization.setLogo({ file: profileImage })
-                .then((res) => console.log(res))
-                .catch((error) => console.log("An error occurred:", error.errors));
-              });
-          } else {
-            document.getElementById("app").innerHTML = `
+            currentOrganization
+              .setLogo({ file: profileImage })
+              .then((res) => console.log(res))
+              .catch((error) => console.log('An error occurred:', error.errors))
+          })
+        } else {
+          document.getElementById('app').innerHTML = `
               <div id="sign-in"></div>
-            `;
-            const signInDiv = document.getElementById("sign-in");
-            Clerk.mountSignIn(signInDiv);
-          }
-        });
-      </script>
+            `
+          const signInDiv = document.getElementById('sign-in')
+          Clerk.mountSignIn(signInDiv)
+        }
+      })
+    </script>
     ```
   </Tab>
 </Tabs>
@@ -354,17 +360,17 @@ function reload: (p?: ClerkResourceReloadParams) => Promise<this>;
 #### Example
 
 <CodeBlockTabs type="npm-script" options={['NPM module', '<script>']}>
-  ```js {{ prettier: false, filename: 'main.js', mark: [7] }}
-  import { Clerk } from '@clerk/clerk-js';
+  ```js {{ filename: 'main.js', mark: [7] }}
+  import { Clerk } from '@clerk/clerk-js'
 
   // Initialize Clerk with your Clerk publishable key
-  const clerk = new Clerk('{{pub_key}}');
-  await clerk.load();
+  const clerk = new Clerk('{{pub_key}}')
+  await clerk.load()
 
-  await clerk.user.reload();
+  await clerk.user.reload()
   ```
 
-  ```html {{ prettier: false, filename: 'index.html', mark: [15] }}
+  ```html {{ filename: 'index.html', mark: [15] }}
   <!-- Initialize Clerk with your
   Clerk Publishable key and Frontend API URL -->
   <script
@@ -376,11 +382,11 @@ function reload: (p?: ClerkResourceReloadParams) => Promise<this>;
   ></script>
 
   <script>
-    window.addEventListener("load", async function () {
-      await Clerk.load();
+    window.addEventListener('load', async function () {
+      await Clerk.load()
 
-      await Clerk.user.reload();
-    });
+      await Clerk.user.reload()
+    })
   </script>
   ```
 </CodeBlockTabs>
@@ -402,29 +408,30 @@ function getSessions: () => Promise<SessionWithActivities[]>;
 #### Example
 
 <CodeBlockTabs type="npm-script" options={['NPM module', '<script>']}>
-  ```js {{ prettier: false, filename: 'main.js', mark: [8] }}
-  import { Clerk } from '@clerk/clerk-js';
+  ```js {{ filename: 'main.js', mark: [8] }}
+  import { Clerk } from '@clerk/clerk-js'
 
   // Initialize Clerk with your Clerk publishable key
-  const clerk = new Clerk('{{pub_key}}');
-  await clerk.load();
+  const clerk = new Clerk('{{pub_key}}')
+  await clerk.load()
 
   if (clerk.user) {
-    await clerk.user.getSessions()
+    await clerk.user
+      .getSessions()
       .then((res) => console.log(res))
-      .catch((error) => console.log("An error occurred:", error.errors));
+      .catch((error) => console.log('An error occurred:', error.errors))
   } else {
-    document.getElementById("app").innerHTML = `
+    document.getElementById('app').innerHTML = `
       <div id="sign-in"></div>
-    `;
+    `
 
-    const signInDiv = document.getElementById("sign-in");
+    const signInDiv = document.getElementById('sign-in')
 
-    clerk.mountSignIn(signInDiv);
+    clerk.mountSignIn(signInDiv)
   }
   ```
 
-  ```html {{ prettier: false, filename: 'index.html', mark: [18] }}
+  ```html {{ filename: 'index.html', mark: [18] }}
   <div id="app"></div>
 
   <!-- Initialize Clerk with your
@@ -438,23 +445,24 @@ function getSessions: () => Promise<SessionWithActivities[]>;
   ></script>
 
   <script>
-    window.addEventListener("load", async function () {
-      await Clerk.load();
+    window.addEventListener('load', async function () {
+      await Clerk.load()
 
       if (Clerk.user) {
-        await Clerk.user.getSessions()
+        await Clerk.user
+          .getSessions()
           .then((res) => console.log(res))
-          .catch((error) => console.log("An error occurred:", error.errors));
+          .catch((error) => console.log('An error occurred:', error.errors))
       } else {
-        document.getElementById("app").innerHTML = `
+        document.getElementById('app').innerHTML = `
           <div id="sign-in"></div>
-        `;
+        `
 
-        const signInDiv = document.getElementById("sign-in");
+        const signInDiv = document.getElementById('sign-in')
 
-        Clerk.mountSignIn(signInDiv);
+        Clerk.mountSignIn(signInDiv)
       }
-    });
+    })
   </script>
   ```
 </CodeBlockTabs>
@@ -515,29 +523,30 @@ function getOrganizationInvitations: (params?: GetUserOrganizationInvitationsPar
 #### Example
 
 <CodeBlockTabs type="npm-script" options={['NPM module', '<script>']}>
-  ```js {{ prettier: false, filename: 'main.js', mark: [8] }}
-  import { Clerk } from '@clerk/clerk-js';
+  ```js {{ filename: 'main.js', mark: [8] }}
+  import { Clerk } from '@clerk/clerk-js'
 
   // Initialize Clerk with your Clerk publishable key
-  const clerk = new Clerk('{{pub_key}}');
-  await clerk.load();
+  const clerk = new Clerk('{{pub_key}}')
+  await clerk.load()
 
   if (clerk.user) {
-    await clerk.user.getOrganizationInvitations()
+    await clerk.user
+      .getOrganizationInvitations()
       .then((res) => console.log(res))
-      .catch((error) => console.log("An error occurred:", error.errors));
+      .catch((error) => console.log('An error occurred:', error.errors))
   } else {
-    document.getElementById("app").innerHTML = `
+    document.getElementById('app').innerHTML = `
       <div id="sign-in"></div>
-    `;
+    `
 
-    const signInDiv = document.getElementById("sign-in");
+    const signInDiv = document.getElementById('sign-in')
 
-    clerk.mountSignIn(signInDiv);
+    clerk.mountSignIn(signInDiv)
   }
   ```
 
-  ```html {{ prettier: false, filename: 'index.html', mark: [18] }}
+  ```html {{ filename: 'index.html', mark: [18] }}
   <div id="app"></div>
 
   <!-- Initialize Clerk with your
@@ -551,23 +560,24 @@ function getOrganizationInvitations: (params?: GetUserOrganizationInvitationsPar
   ></script>
 
   <script>
-    window.addEventListener("load", async function () {
-      await Clerk.load();
+    window.addEventListener('load', async function () {
+      await Clerk.load()
 
       if (Clerk.user) {
-        await Clerk.user.getOrganizationInvitations()
+        await Clerk.user
+          .getOrganizationInvitations()
           .then((res) => console.log(res))
-          .catch((error) => console.log("An error occurred:", error.errors));
+          .catch((error) => console.log('An error occurred:', error.errors))
       } else {
-        document.getElementById("app").innerHTML = `
+        document.getElementById('app').innerHTML = `
           <div id="sign-in"></div>
-        `;
+        `
 
-        const signInDiv = document.getElementById("sign-in");
+        const signInDiv = document.getElementById('sign-in')
 
-        Clerk.mountSignIn(signInDiv);
+        Clerk.mountSignIn(signInDiv)
       }
-    });
+    })
   </script>
   ```
 </CodeBlockTabs>
@@ -597,29 +607,30 @@ function getOrganizationSuggestions: (params?: GetUserOrganizationSuggestionsPar
 #### Example
 
 <CodeBlockTabs type="npm-script" options={['NPM module', '<script>']}>
-  ```js {{ prettier: false, filename: 'main.js', mark: [8] }}
-  import { Clerk } from '@clerk/clerk-js';
+  ```js {{ filename: 'main.js', mark: [8] }}
+  import { Clerk } from '@clerk/clerk-js'
 
   // Initialize Clerk with your Clerk publishable key
-  const clerk = new Clerk('{{pub_key}}');
-  await clerk.load();
+  const clerk = new Clerk('{{pub_key}}')
+  await clerk.load()
 
   if (clerk.user) {
-    await clerk.user.getOrganizationSuggestions()
+    await clerk.user
+      .getOrganizationSuggestions()
       .then((res) => console.log(res))
-      .catch((error) => console.log("An error occurred:", error.errors));
+      .catch((error) => console.log('An error occurred:', error.errors))
   } else {
-    document.getElementById("app").innerHTML = `
+    document.getElementById('app').innerHTML = `
       <div id="sign-in"></div>
-    `;
+    `
 
-    const signInDiv = document.getElementById("sign-in");
+    const signInDiv = document.getElementById('sign-in')
 
-    clerk.mountSignIn(signInDiv);
+    clerk.mountSignIn(signInDiv)
   }
   ```
 
-  ```html {{ prettier: false, filename: 'index.html', mark: [18] }}
+  ```html {{ filename: 'index.html', mark: [18] }}
   <div id="app"></div>
 
   <!-- Initialize Clerk with your
@@ -633,23 +644,24 @@ function getOrganizationSuggestions: (params?: GetUserOrganizationSuggestionsPar
   ></script>
 
   <script>
-    window.addEventListener("load", async function () {
-      await Clerk.load();
+    window.addEventListener('load', async function () {
+      await Clerk.load()
 
       if (Clerk.user) {
-        await Clerk.user.getOrganizationSuggestions()
+        await Clerk.user
+          .getOrganizationSuggestions()
           .then((res) => console.log(res))
-          .catch((error) => console.log("An error occurred:", error.errors));
+          .catch((error) => console.log('An error occurred:', error.errors))
       } else {
-        document.getElementById("app").innerHTML = `
+        document.getElementById('app').innerHTML = `
           <div id="sign-in"></div>
-        `;
+        `
 
-        const signInDiv = document.getElementById("sign-in");
+        const signInDiv = document.getElementById('sign-in')
 
-        Clerk.mountSignIn(signInDiv);
+        Clerk.mountSignIn(signInDiv)
       }
-    });
+    })
   </script>
   ```
 </CodeBlockTabs>
@@ -678,29 +690,30 @@ function getOrganizationMemberships: (params?: GetUserOrganizationMembershipPara
 #### Example
 
 <CodeBlockTabs type="npm-script" options={['NPM module', '<script>']}>
-  ```js {{ prettier: false, filename: 'main.js', mark: [8] }}
-  import { Clerk } from '@clerk/clerk-js';
+  ```js {{ filename: 'main.js', mark: [8] }}
+  import { Clerk } from '@clerk/clerk-js'
 
   // Initialize Clerk with your Clerk publishable key
-  const clerk = new Clerk('{{pub_key}}');
-  await clerk.load();
+  const clerk = new Clerk('{{pub_key}}')
+  await clerk.load()
 
   if (clerk.user) {
-    await clerk.user.getOrganizationMemberships()
+    await clerk.user
+      .getOrganizationMemberships()
       .then((res) => console.log(res))
-      .catch((error) => console.log("An error occurred:", error.errors));
+      .catch((error) => console.log('An error occurred:', error.errors))
   } else {
-    document.getElementById("app").innerHTML = `
+    document.getElementById('app').innerHTML = `
       <div id="sign-in"></div>
-    `;
+    `
 
-    const signInDiv = document.getElementById("sign-in");
+    const signInDiv = document.getElementById('sign-in')
 
-    clerk.mountSignIn(signInDiv);
+    clerk.mountSignIn(signInDiv)
   }
   ```
 
-  ```html {{ prettier: false, filename: 'index.html', mark: [18] }}
+  ```html {{ filename: 'index.html', mark: [18] }}
   <div id="app"></div>
 
   <!-- Initialize Clerk with your
@@ -714,23 +727,24 @@ function getOrganizationMemberships: (params?: GetUserOrganizationMembershipPara
   ></script>
 
   <script>
-    window.addEventListener("load", async function () {
-      await Clerk.load();
+    window.addEventListener('load', async function () {
+      await Clerk.load()
 
       if (Clerk.user) {
-        await Clerk.user.getOrganizationMemberships()
+        await Clerk.user
+          .getOrganizationMemberships()
           .then((res) => console.log(res))
-          .catch((error) => console.log("An error occurred:", error.errors));
+          .catch((error) => console.log('An error occurred:', error.errors))
       } else {
-        document.getElementById("app").innerHTML = `
+        document.getElementById('app').innerHTML = `
           <div id="sign-in"></div>
-        `;
+        `
 
-        const signInDiv = document.getElementById("sign-in");
+        const signInDiv = document.getElementById('sign-in')
 
-        Clerk.mountSignIn(signInDiv);
+        Clerk.mountSignIn(signInDiv)
       }
-    });
+    })
   </script>
   ```
 </CodeBlockTabs>
