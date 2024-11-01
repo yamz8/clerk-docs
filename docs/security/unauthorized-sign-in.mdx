@@ -10,6 +10,11 @@ Clerk identifies attempts by unauthorized individuals or entities to access a us
 Whenever a sign-in attempt is completed from an unfamiliar device, Clerk sends an email notification to the account owner with information about the newly created session.
 
 The account owner can then choose to immediately revoke this session.
+The email notification users receive for unauthorized sign-ins varies depending on the instance's configuration and the application's billing plan.
+
+By default, the email includes information about the unauthorized sign-in attempt, such as device type, operating system, IP address, location, and the sign-in method used. If you've set a support email for your app, Clerk will add instructions for the user to contact the app administrator.
+
+For supported instances, the email might also include a button allowing users to sign out from the unrecognized device. Clicking this button immediately revokes the session.
 
 To configure this feature:
 
