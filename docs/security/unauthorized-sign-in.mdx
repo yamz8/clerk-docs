@@ -7,10 +7,7 @@ Clerk identifies attempts by unauthorized individuals or entities to access a us
 
 ## Email notification for unauthorized access
 
-Whenever a sign-in attempt is completed from an unfamiliar device, Clerk sends an email notification to the account owner with information about the newly created session.
-
-The account owner can then choose to immediately revoke this session.
-The email notification users receive for unauthorized sign-ins varies depending on the instance's configuration and the application's billing plan.
+Whenever a sign-in attempt is completed from an unfamiliar device, Clerk sends an email notification to the account owner with information about the newly created session. The email varies depending on the instance's configuration and the application's billing plan.
 
 By default, the email includes information about the unauthorized sign-in attempt, such as device type, operating system, IP address, location, and the sign-in method used. If you've set a support email for your app, Clerk will add instructions for the user to contact the app administrator.
 
@@ -20,30 +17,16 @@ To configure this feature:
 
 1. In the Clerk Dashboard, navigate to the [**Emails**](https://dashboard.clerk.com/last-active?path=customization/email) page.
 1. Select **Sign in from new client**. You'll be redirected to the template settings page.
-1. Toggle **Delivered by Clerk** to enable the feature.
+1. Toggle **Delivered by Clerk** to enable or disable the feature.
 1. Select **Apply changes**.
 1. To customize the email content, see the [Email and SMS templates](/docs/authentication/configuration/email-sms-templates) guide.
-
-## Email notification for unauthorized access
-
-The email notification users receive for unauthorized sign-ins varies depending on the instance's configuration and the application's billing plan.
-
-By default, the email includes information about the unauthorized sign-in attempt, such as device type, operating system, IP address, location, and the sign-in method used. If you've set a support email for your app, Clerk will add instructions for the user to contact the app administrator.
-
-For supported instances, the email might also include a button allowing users to sign out from the unrecognized device. Clicking this button immediately revokes the session.
-
-Customize the unauthorized sign-in email notification:
-
-1. In the Clerk Dashboard, navigate to the [**Emails**](https://dashboard.clerk.com/last-active?path=customization/email) page.
-1. Select the **New Client Sign In** option. You'll be redirected to the template settings page.
-1. Edit the email template and apply your changes.
 
 ## Session revocation for unauthorized sign-ins
 
 > [!WARNING]
 > This feature isn't available in production for free plans. However, you can try it out for free in development. For more information, see the [pricing](/pricing){{ target: '_blank' }} page.
 
-For apps that support it, users can immediately revoke unauthorized sign-ins directly from the email notification. A single click will revoke the suspicious session and redirect the user to a confirmation page. The contents of the confirmation page depend on the instance's configuration.
+For supported instances, the email might also include a button allowing users to immediately revoke unauthorized sign-ins. Clicking this button revokes the suspicious session and redirects the user to a confirmation page. The contents of the confirmation page depend on the instance's configuration.
 
 - [Account Portal](/docs/customization/account-portal/overview) enabled: The user is redirected to the [Unauthorized sign-in](/docs/customization/account-portal/overview#unauthorized-sign-in) page, where content can be customized based on the app's theme.
 - Account Portal disabled: Users see a plain text confirmation of successful session revocation.
