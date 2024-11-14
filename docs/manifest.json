@@ -64,7 +64,7 @@
                     "href": "/docs/quickstarts/expo"
                   },
                   { "title": "iOS", "tag": "(Beta)", "href": "/docs/quickstarts/ios" },
-                  { "title": "Vue", "tag": "(Beta)", "href": "/docs/quickstarts/vue", "icon": "vue" }
+                  { "title": "Vue", "href": "/docs/quickstarts/vue", "icon": "vue" }
                 ]
               ]
             },
