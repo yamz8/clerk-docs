@@ -41,8 +41,7 @@
                     "tag": "(Beta)",
                     "href": "/docs/quickstarts/tanstack-start",
                     "icon": "tanstack"
-                  },
-                  { "title": "Astro", "tag": "(Beta)", "href": "/docs/quickstarts/vue", "icon": "vue" }
+                  }
                 ]
               ]
             },
@@ -64,7 +63,8 @@
                     "title": "Expo",
                     "href": "/docs/quickstarts/expo"
                   },
-                  { "title": "iOS", "tag": "(Beta)", "href": "/docs/quickstarts/ios" }
+                  { "title": "iOS", "tag": "(Beta)", "href": "/docs/quickstarts/ios" },
+                  { "title": "Vue", "tag": "(Beta)", "href": "/docs/quickstarts/vue", "icon": "vue" }
                 ]
               ]
             },
