@@ -136,7 +136,8 @@
         "user-circle",
         "user-dotted-circle",
         "vue",
-        "x"
+        "x",
+        "nuxt"
       ]
     }
   }

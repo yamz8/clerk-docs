@@ -45,7 +45,7 @@
                   {
                     "title": "Nuxt",
                     "href": "/docs/quickstarts/nuxt",
-                    "icon": "vue"
+                    "icon": "nuxt"
                   }
                 ]
               ]
@@ -2454,7 +2454,7 @@
             {
               "title": "Nuxt",
               "collapse": true,
-              "icon": "",
+              "icon": "nuxt",
               "items": [
                 [
                   { "title": "Overview", "href": "/docs/references/nuxt/overview" },
