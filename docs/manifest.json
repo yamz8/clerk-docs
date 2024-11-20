@@ -41,6 +41,11 @@
                     "tag": "(Beta)",
                     "href": "/docs/quickstarts/tanstack-start",
                     "icon": "tanstack"
+                  },
+                  {
+                    "title": "Nuxt",
+                    "href": "/docs/quickstarts/nuxt",
+                    "icon": "vue"
                   }
                 ]
               ]
@@ -2439,6 +2444,28 @@
                           "title": "`$organizationStore`",
                           "wrap": false,
                           "href": "/docs/references/astro/organization-store"
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            },
+            {
+              "title": "Nuxt",
+              "collapse": true,
+              "icon": "vue",
+              "items": [
+                [
+                  { "title": "Overview", "href": "/docs/references/nuxt/overview" },
+                  {
+                    "title": "Guides",
+                    "items": [
+                      [
+                        {
+                          "title": "Read session and user data",
+                          "wrap": false,
+                          "href": "/docs/references/nuxt/read-session-data"
                         }
                       ]
                     ]
