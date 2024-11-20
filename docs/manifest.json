@@ -2454,7 +2454,7 @@
             {
               "title": "Nuxt",
               "collapse": true,
-              "icon": "vue",
+              "icon": "",
               "items": [
                 [
                   { "title": "Overview", "href": "/docs/references/nuxt/overview" },
