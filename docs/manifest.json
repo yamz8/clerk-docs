@@ -2469,6 +2469,18 @@
                         }
                       ]
                     ]
+                  },
+                  {
+                    "title": "General Reference",
+                    "items": [
+                      [
+                        {
+                          "title": "`clerkMiddleware()`",
+                          "wrap": false,
+                          "href": "/docs/references/nuxt/clerk-middleware"
+                        }
+                      ]
+                    ]
                   }
                 ]
               ]
