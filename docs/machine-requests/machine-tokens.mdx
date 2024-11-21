@@ -15,6 +15,7 @@ Every machine token you create needs to be associated with a `machine_id`. You c
 
 - It must be prefixed with `mch_`
 - It must only contain lowercase letters and numbers
+- It must be 255 characters or less
 
 > [!TIP]
 > It is a good idea to have the `machine_id` correspond with the identity of the service generating the token. For example if you have a cron service, a `machine_id` of `mch_cron` would make sense.
