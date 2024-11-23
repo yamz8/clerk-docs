@@ -265,6 +265,7 @@ This guide will be written for Next.js applications using App Router, but the sa
 
   ```tsx {{ filename: 'middleware.ts' }}
   import { clerkMiddleware } from '@clerk/nextjs/server'
+  import { NextResponse } from 'next/server';
 
   export default clerkMiddleware(async (auth, req) => {
     const { userId, orgId } = await auth()
